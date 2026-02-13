@@ -1,0 +1,20 @@
+{
+  "name": "biocom-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev:admin": "pnpm --filter admin dev",
+    "dev:booking": "pnpm --filter booking dev",
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.27.0",
+  "devDependencies": {
+    "turbo": "^2.8.7"
+  }
+}
