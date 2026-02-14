@@ -58,9 +58,15 @@ export function TableHead({
 export function TableCell({
   children,
   className = '',
+  colSpan,
 }: {
   children: ReactNode;
   className?: string;
+  colSpan?: number;
 }) {
-  return <td className={`p-4 align-middle ${className}`}>{children}</td>;
+  return (
+    <td colSpan={colSpan} className={`p-4 align-middle ${className}`}>
+      {children}
+    </td>
+  );
 }

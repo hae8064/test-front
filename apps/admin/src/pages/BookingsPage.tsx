@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { adminSlotsApi, adminBookingsApi } from "@biocom/api";
 import { formatKST } from "@biocom/utils";
 import {
-  Button,
   Calendar,
   Table,
   TableHeader,
@@ -91,21 +90,33 @@ function SlotBookings({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {bookings.map((b) => (
-              <TableRow key={b.id}>
-                <TableCell className="text-center">{b.applicant.name}</TableCell>
-                <TableCell className="text-center">{b.applicant.email}</TableCell>
-                <TableCell className="text-center">{b.applicant.phone ?? "-"}</TableCell>
-                <TableCell className="text-center">{formatKST(b.createdAt, "datetime")}</TableCell>
-                <TableCell>
-                  <Link to={`/sessions/${b.id}`}>
-                    <Button variant="ghost" size="sm">
-                      상담 기록
-                    </Button>
-                  </Link>
-                </TableCell>
+            {bookings.length === 0 ? (
+              <TableRow>
+                <td
+                  colSpan={5}
+                  className="p-4 py-8 text-center align-middle text-muted-foreground"
+                >
+                  예약자 없음
+                </td>
               </TableRow>
-            ))}
+            ) : (
+              bookings.map((b) => (
+                <TableRow key={b.id}>
+                  <TableCell className="text-center">{b.applicant.name}</TableCell>
+                  <TableCell className="text-center">{b.applicant.email}</TableCell>
+                  <TableCell className="text-center">{b.applicant.phone ?? "-"}</TableCell>
+                  <TableCell className="text-center">{formatKST(b.createdAt, "datetime")}</TableCell>
+                  <TableCell>
+                    <Link
+                      to={`/sessions/${b.id}`}
+                      className="inline-flex h-9 items-center justify-center rounded-md border border-input bg-background px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      상담 기록
+                    </Link>
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       )}
