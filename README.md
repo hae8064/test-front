@@ -54,14 +54,18 @@ VITE_API_BASE_URL=http://localhost:4000
 - `/public/reserve?token=xxx` - 예약 페이지
 - `/public/complete?bookingId=xxx` - 예약 완료 화면
 
-## API 엔드포인트 (백엔드 연동 가정)
+## API 엔드포인트
 
 | 구분 | 메서드 | 경로 |
 |------|--------|------|
-| Admin Auth | POST | /admin/auth/login |
-| Admin Slots | GET/POST/PATCH/DELETE | /admin/slots |
+| Admin Auth | POST | /auth/login |
+| Admin Slots | GET | /admin/slots |
+| Admin Slots | POST | /admin/slots |
+| Admin Slots | PATCH | /admin/slots/:id |
+| Admin Slots | DELETE | /admin/slots/:id |
 | Admin Bookings | GET | /admin/slots/:slotId/bookings |
 | Admin Email Links | POST | /admin/email-links |
-| Admin Sessions | GET/PUT | /admin/sessions/:bookingId |
+| Admin Sessions | GET | /admin/bookings/:bookingId/session |
+| Admin Sessions | POST | /admin/bookings/:bookingId/session |
 | Public Reserve | GET | /public/reserve?token=&date= |
-| Public Reserve | POST | /public/reserve?token= |
+| Public Bookings | POST | /public/bookings |
