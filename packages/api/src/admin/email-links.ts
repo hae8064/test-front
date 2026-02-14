@@ -7,6 +7,12 @@ export interface EmailLink {
   expiresAt?: string;
 }
 
+export interface CreateEmailLinkRequest {
+  counselorId?: string;
+  expiresInHours?: number;
+}
+
 export const adminEmailLinksApi = {
-  create: () => adminClient.post<EmailLink>('/admin/email-links'),
+  create: (data?: CreateEmailLinkRequest) =>
+    adminClient.post<EmailLink>('/admin/email-links', data ?? {}),
 };
