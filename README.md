@@ -1,4 +1,4 @@
-# Biocom Frontend (모노레포)
+# React Playground
 
 React + TypeScript + Vite 기반 예약 관리 프론트엔드 모노레포입니다.
 
